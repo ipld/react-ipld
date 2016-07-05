@@ -46,6 +46,19 @@ export default class Demo extends Component {
          })
   }
 
+  _loadItem = (hash) => {
+    store
+         .resolve(`/ipfs/${hash}`)
+         .then((result) => {
+           this.refs.editor.setValue(
+             JSON.stringify(result, null, 2)
+           )
+         })
+         .catch((err) => {
+           console.error(err.stack)
+         })
+  }
+
   _onCodeChange = (newCode) => {
     this.setState({code: newCode})
   }
@@ -60,11 +73,16 @@ export default class Demo extends Component {
         <h1>React IPLD</h1>
         <div>
           <div className='left'>
-            <IPLDEditor value={this.state.code} onChange={this._onCodeChange} />
+            <IPLDEditor
+              ref='editor'
+              value={this.state.code}
+              onChange={this._onCodeChange} />
           </div>
           <div className='right'>
             <button onClick={this._onAdd}>Add object</button>
-            <IPLDStoreList list={this.state.hashes} />
+            <IPLDStoreList
+              list={this.state.hashes}
+              onItemClick={this._loadItem} />
           </div>
         </div>
         <div>

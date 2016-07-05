@@ -14,6 +14,10 @@ export default class IPLDEditor extends Component {
     onChange () {}
   }
 
+  componentDidMount () {
+    this.state.cm = this.refs.reactCm.getCodeMirror()
+  }
+
   constructor (props) {
     super(props)
     this.state = {
@@ -21,7 +25,8 @@ export default class IPLDEditor extends Component {
       options: {
         linenumbers: true,
         mode: 'javascript'
-      }
+      },
+      cm: null
     }
   }
 
@@ -30,9 +35,14 @@ export default class IPLDEditor extends Component {
     this.props.onChange(newCode)
   }
 
+  setValue (newCode) {
+    this.state.cm.setValue(newCode)
+  }
+
   render () {
     return (
       <Codemirror
+        ref='reactCm'
         value={this.state.code}
         onChange={this._updateCode}
         options={this.state.options}
