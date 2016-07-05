@@ -12,7 +12,7 @@
 
 ### IPLDEditor
 
-Editor based on [codemirror]() to edit IPLD objects.
+Editor based on [codemirror](http://codemirror.net/) to edit IPLD objects.
 
 ### IPLDStoreList
 
@@ -23,3 +23,20 @@ Display existing IPLD objects and delete them.
 ### IPLDStore
 
 Setup storage and resolution for IPLD objects in the browser.
+
+Available methods:
+
+- `add(obj) -> Promise`: Add the given JavaScript.
+- `resolve(path) -> Promise`: Resolve the given IPLD path agains all stored objects.
+
+
+## Development
+
+```bash
+# Run
+$ npm start
+# Build
+$ npm run build
+# Lint
+$ npm run lint
+```

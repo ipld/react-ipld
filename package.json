@@ -11,7 +11,8 @@
     "ipfs-repo": "^0.8.0",
     "ipld": "^0.6.0",
     "react": "^15.0.1",
-    "react-codemirror": "^0.2.6"
+    "react-codemirror": "^0.2.6",
+    "react-json-tree": "^0.8.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.6",
