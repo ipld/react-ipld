@@ -1,8 +1,6 @@
 import React, {Component} from 'react'
 
-import IPLDEditor from './ipld-editor'
-import IPLDStore from './ipld-store'
-import IPLDStoreList from './ipld-store-list'
+import {IPLDEditor, IPLDStore, IPLDStoreList} from './index'
 import {Set} from 'immutable'
 
 const store = new IPLDStore()

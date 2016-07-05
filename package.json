@@ -43,7 +43,7 @@
     "webpack": "^1.12.15"
   },
   "license": "MIT",
-  "main": "app.js",
+  "main": "src/index.js",
   "scripts": {
     "start": "hjs-dev-server",
     "build": "NODE_ENV=production webpack",
