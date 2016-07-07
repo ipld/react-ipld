@@ -68,6 +68,16 @@ export default class Demo extends Component {
   }
 
   render () {
+    let results
+
+    if (this.state.result) {
+      results = (
+        <div>
+          <h4><code>{this.state.path}</code></h4>
+          <JSONTree hideRoot data={this.state.result} />
+        </div>
+      )
+    }
     return (
       <div>
         <h1>React IPLD</h1>
@@ -87,10 +97,10 @@ export default class Demo extends Component {
         </div>
         <div>
           <h3>Resolve</h3>
-          <input value={this.state.path} onChange={this._onPathChange} />
+          <input className='resolve-input' value={this.state.path} onChange={this._onPathChange} />
           <button onClick={this._onResolve}>Resolve Path</button>
           <div className='result'>
-            {this.state.result ? <JSONTree hideRoot data={this.state.result} /> : null}
+            {results}
           </div>
         </div>
       </div>
